@@ -17,6 +17,7 @@ edit_handler = ConversationHandler(
         edit.state4: [MessageHandler(convo_text_filter, edit.handle_clear_photos)],
     },
     fallbacks=[MessageHandler(Filters.command, edit.end_convo)],
+    run_async=True,
 )
 
 
@@ -31,4 +32,5 @@ config_chat_handler = ConversationHandler(
         ],
     },
     fallbacks=[MessageHandler(Filters.command, edit.end_convo)],
+    run_async=True,
 )
