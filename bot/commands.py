@@ -9,7 +9,7 @@ from bot.actions import permissions
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, _):
-    """Send a message when the command /start is issued."""
+    """Gửi tin nhắn khi có lệnh /start."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to create new job
@@ -20,17 +20,17 @@ def start(update, _):
 
 
 def help(update, _):
-    """Send a message when the command /help is issued."""
+    """Gửi tin nhắn khi có lệnh /help."""
     replies.send_help_message(update)
 
 
 def checkcron(update, _):
-    """Send a message when the command /checkcron is issued."""
+    """Gửi tin nhắn khi lệnh /checkcron được ban hành."""
     replies.send_checkcron_message(update)
 
 
 def add(update, context):
-    """Send a message when the command /add is issued."""
+    """Gửi tin nhắn khi lệnh /add được ban hành."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to create new job
@@ -50,7 +50,7 @@ def add(update, context):
 
 
 def add_multiple(update, context):
-    """Send a message when the command /addmultiple is issued."""
+    """Gửi tin nhắn khi lệnh /addmultiple được ban hành."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to create new job
@@ -70,7 +70,7 @@ def add_multiple(update, context):
 
 
 def delete(update, context):
-    """Send a message when the command /delete is issued."""
+    """Gửi tin nhắn khi có lệnh /delete."""
     db_service = mongo.MongoService(update)
     if not permissions.check_rights(update, context, db_service):
         return
@@ -83,7 +83,7 @@ def delete(update, context):
 
 
 def list_jobs(update, context):
-    """Send a message when the command /list is issued."""
+    """Gửi tin nhắn khi lệnh /list được ban hành."""
     db_service = mongo.MongoService(update)
     if not permissions.check_rights(update, context, db_service):
         return
@@ -96,14 +96,14 @@ def list_jobs(update, context):
 
 
 def list_options(update, _):
-    """Send a message when the command /options is issued."""
+    """Gửi tin nhắn khi lệnh /options được ban hành."""
     is_group = update.message.chat.type in ["group", "supergroup"]
     if is_group:
         replies.send_list_options_message(update)
 
 
 def option_restrict_to_admins(update, context):
-    """Send a message when the command /adminsonly is issued."""
+    """Gửi tin nhắn khi lệnh /adminsonly được ban hành."""
     if update.message.chat.type not in ["group", "supergroup"]:
         return
 
@@ -115,7 +115,7 @@ def option_restrict_to_admins(update, context):
 
 
 def option_restrict_to_user(update, context):
-    """Send a message when the command /creatoronly is issued."""
+    """Gửi tin nhắn khi lệnh /creatoronly được ban hành."""
 
     if update.message.chat.type not in ["group", "supergroup"]:
         return
@@ -128,7 +128,7 @@ def option_restrict_to_user(update, context):
 
 
 def change_tz(update, context):
-    """Send a message when the command /changetz is issued."""
+    """Gửi tin nhắn khi lệnh /changetz được ban hành."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to change tz
@@ -142,7 +142,7 @@ def change_tz(update, context):
 
 
 def change_sender(update: Update, _):
-    """Send a message when the command /changesender is issued."""
+    """Gửi tin nhắn khi có lệnh /changesender."""
     db_service = mongo.MongoService(update)
 
     # find groups/private/channel created by user
@@ -161,7 +161,7 @@ def change_sender(update: Update, _):
 
 
 def reset(update, context):
-    """Send a message when the command /reset is issued."""
+    """Gửi tin nhắn khi có lệnh /reset."""
     db_service = mongo.MongoService(update)
     if not permissions.check_rights(update, context, db_service):
         return
@@ -174,7 +174,7 @@ def reset(update, context):
 
 
 def edit_job(update, context):
-    """Send a message when the command /edit is issued."""
+    """Gửi tin nhắn khi có lệnh /edit."""
 
     db_service = mongo.MongoService(update)
     if not permissions.check_rights(update, context, db_service):
