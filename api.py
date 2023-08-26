@@ -119,7 +119,7 @@ def send_message(
     log.log_api_send_message(job_id, chat_id, resp.status_code)
 
     if resp.status_code != 200:
-        return "", "Error {}: {}".format(resp.status_code, resp.json()["description"])
+        return "", "Lỗi {}: {}".format(resp.status_code, resp.json()["description"])
 
     if photo_group_id != "":
         msg_ids = [str(message["message_id"]) for message in resp.json()["result"]]
