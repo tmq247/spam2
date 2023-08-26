@@ -39,7 +39,7 @@ def send_single_photo_local(
     new_token, chat_id, content="", photo=None, remote_photo_id=None, prev_token=None
 ):
     if photo is None and remote_photo_id is None:
-        raise ValueError("Either photo or remote_photo_id must be specified")
+        raise ValueError("Phải chỉ định ảnh hoặc remote_photo_id")
     if remote_photo_id is not None and prev_token is None:
         prev_token = TELEGRAM_BOT_TOKEN
     if new_token is None:
@@ -129,7 +129,7 @@ def transfer_photo_between_bots(db_service, new_token, prev_token, chat_id, entr
     resp = send_single_photo_local(
         new_token=new_token,
         chat_id=chat_id,
-        content="Transferring photo between bots...",
+        content="Chuyển ảnh giữa các bot...",
         remote_photo_id=entry["photo_id"],
         prev_token=prev_token,
     )
