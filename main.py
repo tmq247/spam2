@@ -16,8 +16,8 @@ from bot import handlers, commands
 
 
 def error(update, context):
-    """Log Errors caused by Updates."""
-    logger.warning('Update "%s" caused error "%s"', update, context.error)
+    """Nhật ký lỗi do cập nhật gây ra."""
+    logger.warning('Cập nhật "%s" gây ra lỗi "%s"', update, context.error)
 
 
 def prepare_dispatcher(dp):
