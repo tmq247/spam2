@@ -2,17 +2,17 @@ from telegram import ReplyKeyboardRemove, Update
 from telegram.constants import ParseMode
 from telegram.ext._contexttypes import ContextTypes
 
-delete_success_message = "Yeet! This job is now gone."
-restrict_success_message = "Hurray! From now on __bot_ic__ can set up recurring messages. Run the command again to toggle the restriction setting."
+delete_success_message = "Yee! Công việc này bây giờ đã không còn nữa."
+restrict_success_message = "Hoan hô! Từ bây giờ __bot_ic__ có thể thiết lập tin nhắn định kỳ. Chạy lại lệnh để chuyển đổi cài đặt hạn chế."
 timezone_change_success_message = (
-    "Yipee! Your timezone has been updated to UTC__utc_tz__."
+    "Yipee! Múi giờ của bạn đã được cập nhật thành UTC__utc_tz__."
 )
-reset_success_messge = "Yeet! No more recurring messages in this chat."
-jobs_creation_success_message = "The following recurring messages are created, /list to view all messages and their details:\n"
-attribute_change_success_message = "Yipee! Your recurring message is updated successfully.\n\n/list to view all messages and their details."
-sender_change_success_message = "Sender for %s is now %s. \n\nRemember to add %s into the group/channel as an admin and enable:\n1. <i>Change Group/Channel Info</i> and\n2. <i>Post Messages</i>."
+reset_success_messge = "Yee! Không còn tin nhắn lặp lại trong cuộc trò chuyện này."
+jobs_creation_success_message = "Các tin nhắn định kỳ sau đây được tạo, /list để xem tất cả tin nhắn và thông tin chi tiết của chúng:\n"
+attribute_change_success_message = "Yipee! Tin nhắn định kỳ của bạn đã được cập nhật thành công.\n\n/list để xem tất cả tin nhắn và thông tin chi tiết của chúng."
+sender_change_success_message = "Người gửi cho %s bây giờ là %s. \n\nHãy nhớ thêm %s vào nhóm/kênh với tư cách quản trị viên và bật:\n1. <i>Thay đổi thông tin nhóm/kênh</i> và\n2. <i>Đăng tin nhắn</i>."
 sender_reset_success_message = (
-    "Sender has been reset to default for chat. /changesender to set a new sender."
+    "Người gửi đã được đặt lại về mặc định để trò chuyện. /changesender để đặt người gửi mới."
 )
 
 
