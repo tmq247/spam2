@@ -74,7 +74,7 @@ if (
     and existing_entry.get("new_limit") <= 0
     and not OVERRIDE_BLACKLIST
 ):
-    print("User has been blacklisted previously, aborting whitelisting process")
+    print("Người dùng đã bị đưa vào danh sách đen trước đó, đang hủy bỏ quá trình đưa vào danh sách trắng")
     sys.exit(0)
 
 if NEW_LIMIT > config.JOB_LIMIT_PER_PERSON:
@@ -89,16 +89,16 @@ if NEW_LIMIT > config.JOB_LIMIT_PER_PERSON:
         },
         upsert=True,
     )
-    print("Successfully whitelisted user %s" % user_id)
+    print("Người dùng được đưa vào danh sách trắng thành công %s" % user_id)
     sys.exit(0)
 
 if NEW_LIMIT == config.JOB_LIMIT_PER_PERSON:
     whitelist_collection.update_one(
         {"user_id": user_id, "removed_ts": ""}, {"$set": {"removed_ts": now}}
     )
-    print("Successfully removed whitelist for user %s" % user_id)
+    print("Đã xóa thành công danh sách trắng cho người dùng %s" % user_id)
     sys.exit(0)
 
 # if NEW_LIMIT < config.JOB_LIMIT_PER_PERSON:
-print("Is NEW_LIMIT set correctly?")
+print("NEW_LIMIT có được đặt chính xác không?")
 sys.exit(0)
