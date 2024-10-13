@@ -28,29 +28,29 @@ request_text_message = (
     "Bây giờ hãy cho tôi những gì bạn muốn gửi\n\n(vuốt sang trái để trả lời tin nhắn này)"
 )
 request_jobs_message = "Trả lời tin nhắn này kèm theo công việc của bạn theo định dạng sau (ví dụ):\n\n0 10 * * 2 Dọn dẹp một bảng\n0 10 * * 4 Kiểm tra lịch\n0 14 * * 5 Kiểm tra cái này cái kia và cái kia\n\n(vuốt sang trái để trả lời tin nhắn này)"
-simple_prompt_message = "/add to create a new job"
-prompt_new_job_message = "The job already got this field. Please /add and create a new job. If you want to override, /delete job and create again."
-list_jobs_message = "Choose the job you are interested to know more about. The jobs are listed on the reply keyboard.\n\n(swipe left to reply to this message)"
-checkcron_message = "Hey, send me your cron expression, I will decrypt it for you.\n\n(swipe left to reply to this message)"
-checkcron_meaning_message = "Ok, that means: "
-list_options_message_group = "<b>Group options</b>\n/adminsonly - restrict bot to group admins\n/creatoronly - restrict bot to first user\n\n"
-add_to_channel_message = "\n\nRemember to add RM bot into the channel as an admin and enable:\n1. <i>Change Channel Info</i> and\n2. <i>Post Messages</i>."
-change_timezone_message = "Please tell me your new UTC timezone.\n\nNote that this will change the timezone for all jobs set up in this chat.\n\n(swipe left to reply to this message)"
-checkcron_invalid_message = "Alright, that is not a valid cron. Click <a href='https://crontab.guru/'>here</a> if you need help."  # html
+simple_prompt_message = "/add để tạo một công việc mới"
+prompt_new_job_message = "Công việc đã có lĩnh vực này. Vui lòng/add và tạo một công việc mới.Nếu bạn muốn ghi đè,/delete công việc và tạo lại."
+list_jobs_message = "Chọn công việc bạn quan tâm để tìm hiểu thêm. Các công việc được liệt kê trên bàn phím trả lời.\n\n(vuốt sang trái để trả lời tin nhắn này)"
+checkcron_message = "Này, gửi cho tôi biểu thức cron của bạn, tôi sẽ giải mã nó cho bạn.\n\n(vuốt sang trái để trả lời tin nhắn này)"
+checkcron_meaning_message = "Được rồi, điều đó có nghĩa là: "
+list_options_message_group = "<b>Tùy chọn nhóm</b>\n/adminsonly - hạn chế bot đối với quản trị viên nhóm\n/creatoronly - hạn chế bot cho người dùng đầu tiên\n\n"
+add_to_channel_message = "\n\nHãy nhớ thêm SPAM bot vào kênh với tư cách quản trị viên và bật:\n1. <i>Thay đổi thông tin kênh</i> và\n2. <i>Đăng tin nhắn</i>."
+change_timezone_message = "Vui lòng cho tôi biết múi giờ UTC mới của bạn.\n\nLưu ý rằng thao tác này sẽ thay đổi múi giờ cho tất cả công việc được thiết lập trong cuộc trò chuyện này.\n\n(vuốt sang trái để trả lời tin nhắn này)"
+checkcron_invalid_message = "Được rồi, đó không phải là cron hợp lệ. Nhấp vào <a href='https://crontab.guru/'>here</a> nếu bạn cần giúp đỡ."  # html
 reset_confirmation_message = (
-    "This will delete all the recurring message set up in this chat. Confirm?"
+    "Thao tác này sẽ xóa tất cả tin nhắn định kỳ được thiết lập trong cuộc trò chuyện này. Xác nhận?"
 )
 
 # convo
 choose_job_message = (
-    "Choose the job you want to edit. The jobs are listed on the reply keyboard."
+    "Chọn công việc bạn muốn chỉnh sửa. Các công việc được liệt kê trên bàn phím trả lời."
 )
-choose_attribute_message = "Which attribute would you like to change?"
-prompt_new_value_message = "What would you like to change it to?"
-choose_chat_message = "Which chat would you like to change the sender for?"
-prompt_user_bot_message = "This will change the message sender to the selected chat.\n\nPlease send me your bot token:"
-convo_ended_message = "Terminating previous conversation...\n\n/add another recurring message or /edit an existing one."
-reset_photos_confirmation_message = "This will clear ALL photos for this job. Proceed?"
+choose_attribute_message = "Bạn muốn thay đổi thuộc tính nào?"
+prompt_new_value_message = "Bạn muốn thay đổi nó thành gì?"
+choose_chat_message = "Bạn muốn thay đổi người gửi cuộc trò chuyện nào?"
+prompt_user_bot_message = "Thao tác này sẽ thay đổi người gửi tin nhắn trong cuộc trò chuyện đã chọn.\n\nVui lòng gửi cho tôi bot token:"
+convo_ended_message = "Đang kết thúc cuộc trò chuyện trước đó...\n\n/add một tin nhắn định kỳ khác hoặc /edi tmột cái hiện có."
+reset_photos_confirmation_message = "Thao tác này sẽ xóa TẤT CẢ ảnh cho công việc này. Tiếp tục?"
 
 
 def prepare_keyboard(
@@ -166,7 +166,7 @@ async def send_job_details(update: Update, entry: Optional[Any], bot_name: str) 
         content = "(Poll) %s" % json.loads(content).get("question")
 
     is_paused = entry.get("paused_ts", "") != ""
-    reply_text = "<b>Job name</b>: {}\n<b>Cron</b>: {}\n<b>Content</b>: {}\n<b>Photos</b>: {}\n<b>Category</b>: {}\n<b>Next run</b>: {}\n\n<b>Advanced options</b>\nDelete previous: {}\nSender: {}\n\n/edit".format(
+    reply_text = "<b>Tên công việc</b>: {}\n<b>Cron</b>: {}\n<b>Nội dung</b>: {}\n<b>Photos</b>: {}\n<b>Loại</b>: {}\n<b>Lần chạy tiếp theo</b>: {}\n\n<b>Tùy chọn nâng cao</b>\nXóa trước đó: {}\nNgười gửi: {}\n\n/edit".format(
         entry.get("jobname", ""),
         entry.get("crontab", ""),
         content,
@@ -206,7 +206,7 @@ async def send_confirm_message(
     if entry.get("content_type") == ContentType.POLL.value:
         content = ContentType.POLL.value
     await update.message.reply_text(
-        text='Ok. Done. Added a job titled "{}". Your {} will be sent {}. {}'.format(
+        text='Được rồi. Xong. Đã thêm một công việc có tiêu đề "{}". {} của bạn sẽ được gửi {}. {}'.format(
             entry.get("jobname"),
             content,
             cron_description,
