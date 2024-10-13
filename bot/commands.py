@@ -11,7 +11,7 @@ from typing import Optional
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
 async def start(update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /start is issued."""
+    """Gửi tin nhắn khi có lệnh /start được ban hành."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to create new job
@@ -22,17 +22,17 @@ async def start(update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 async def help(update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /help is issued."""
+    """Gửi tin nhắn khi có lệnh /help được ban hành."""
     await replies.send_help_message(update)
 
 
 async def checkcron(update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /checkcron is issued."""
+    """Gửi tin nhắn khi có lệnh /checkcron được ban hành."""
     await replies.send_checkcron_message(update)
 
 
 async def add(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /add is issued."""
+    """Gửi tin nhắn khi có lệnh /add được ban hành."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to create new job
@@ -53,7 +53,7 @@ async def add(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 async def add_multiple(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /addmultiple is issued."""
+    """Gửi tin nhắn khi có lệnh /addmultiple được ban hành."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to create new job
@@ -74,7 +74,7 @@ async def add_multiple(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 
 async def delete(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /delete is issued."""
+    """Gửi tin nhắn khi có lệnh /delete được ban hành."""
     db_service = mongo.MongoService(update)
     rights = await permissions.check_rights(update, context, db_service)
     if not rights:
@@ -88,7 +88,7 @@ async def delete(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 async def list_jobs(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /list is issued."""
+    """Gửi tin nhắn khi có lệnh /list được ban hành."""
     db_service = mongo.MongoService(update)
     rights = await permissions.check_rights(update, context, db_service)
     if not rights:
@@ -102,7 +102,7 @@ async def list_jobs(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 async def list_options(update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /options is issued."""
+    """Gửi tin nhắn khi có lệnh /options được ban hành."""
     is_group = update.message.chat.type in ["group", "supergroup"]
     if is_group:
         await replies.send_list_options_message(update)
@@ -111,7 +111,7 @@ async def list_options(update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
 async def option_restrict_to_admins(
     update: Update, context: ContextTypes.DEFAULT_TYPE
 ) -> None:
-    """Send a message when the command /adminsonly is issued."""
+    """Gửi tin nhắn khi có lệnh /adminsonly được ban hành."""
     if update.message.chat.type not in ["group", "supergroup"]:
         return
 
@@ -125,7 +125,7 @@ async def option_restrict_to_admins(
 async def option_restrict_to_user(
     update: Update, context: ContextTypes.DEFAULT_TYPE
 ) -> None:
-    """Send a message when the command /creatoronly is issued."""
+    """Gửi tin nhắn khi có lệnh /creatoronly được ban hành."""
 
     if update.message.chat.type not in ["group", "supergroup"]:
         return
@@ -139,7 +139,7 @@ async def option_restrict_to_user(
 
 
 async def change_tz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /changetz is issued."""
+    """Gửi tin nhắn khi có lệnh /changetz được ban hành."""
     db_service = mongo.MongoService(update)
 
     # timezone must be defined in order to change tz
@@ -154,7 +154,7 @@ async def change_tz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 async def change_sender(update: Update, _: ContextTypes.DEFAULT_TYPE) -> Optional[int]:
-    """Send a message when the command /changesender is issued."""
+    """Gửi tin nhắn khi có lệnh /changesender được ban hành."""
     db_service = mongo.MongoService(update)
 
     # find groups/private/channel created by user
@@ -173,7 +173,7 @@ async def change_sender(update: Update, _: ContextTypes.DEFAULT_TYPE) -> Optiona
 
 
 async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /reset is issued."""
+    """Gửi tin nhắn khi có lệnh /reset được ban hành."""
     db_service = mongo.MongoService(update)
     rights = await permissions.check_rights(update, context, db_service)
     if not rights:
@@ -187,7 +187,7 @@ async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 async def edit_job(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Optional[int]:
-    """Send a message when the command /edit is issued."""
+    """Gửi tin nhắn khi có lệnh /edit được ban hành."""
 
     db_service = mongo.MongoService(update)
     rights = await permissions.check_rights(update, context, db_service)
