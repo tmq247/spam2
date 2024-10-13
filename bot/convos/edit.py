@@ -13,11 +13,11 @@ from typing import Optional
 state0, state1, state2, state3, state4 = range(5)
 
 attr_cron = "crontab"
-attr_content = "text content"
-attr_add_photo = "add photo"
-attr_del_photo = "remove all photos"
-attr_del_prev = "toggle delete previous"
-attr_pause_job = "pause/resume job"
+attr_content = "nội dung văn bản"
+attr_add_photo = "thêm ảnh"
+attr_del_photo = "xóa tất cả ảnh"
+attr_del_prev = "chuyển đổi xóa trước đó"
+attr_pause_job = "tạm dừng/tiếp tục công việc"
 
 attrs = [
     attr_cron,
