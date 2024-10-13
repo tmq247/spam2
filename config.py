@@ -27,6 +27,6 @@ MONGODB_BOT_DATA_COLLECTION = "bot_data"
 MONGODB_USER_WHITELIST_COLLECTION = "whitelist"
 
 INFLUXDB_TOKEN = getenv("INFLUXDB_TOKEN")
-INFLUXDB_ORG = "main"
-INFLUXDB_BUCKET = "prod"
-INFLUXDB_HOST = "https://eu-central-1-1.aws.cloud2.influxdata.com"
+INFLUXDB_ORG = "tmq"
+INFLUXDB_BUCKET = "tmq"
+INFLUXDB_HOST = "https://us-east-1-1.aws.cloud2.influxdata.com"
