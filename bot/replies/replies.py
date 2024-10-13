@@ -49,7 +49,7 @@ choose_attribute_message = "Bạn muốn thay đổi thuộc tính nào?"
 prompt_new_value_message = "Bạn muốn thay đổi nó thành gì?"
 choose_chat_message = "Bạn muốn thay đổi người gửi cuộc trò chuyện nào?"
 prompt_user_bot_message = "Thao tác này sẽ thay đổi người gửi tin nhắn trong cuộc trò chuyện đã chọn.\n\nVui lòng gửi cho tôi bot token:"
-convo_ended_message = "Đang kết thúc cuộc trò chuyện trước đó...\n\n/add một tin nhắn định kỳ khác hoặc /edi tmột cái hiện có."
+convo_ended_message = "Đang kết thúc cuộc trò chuyện trước đó...\n\n/add một tin nhắn định kỳ khác hoặc /edit một cái hiện có."
 reset_photos_confirmation_message = "Thao tác này sẽ xóa TẤT CẢ ảnh cho công việc này. Tiếp tục?"
 
 
