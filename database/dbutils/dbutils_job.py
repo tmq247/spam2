@@ -36,7 +36,7 @@ def find_entries_removed_between(
 ) -> List[Optional[Any]]:
     q = {"removed_ts": {"$gte": start_ts, "$lte": end_ts}}
     if err_status is not None:
-        q["errors.error"] = {"$regex": f"^Error {err_status}"}
+        q["errors.error"] = {"$regex": f"^Lỗi {err_status}"}
     return db_service.find_entries(q)
 
 
