@@ -83,4 +83,4 @@ if __name__ == "__main__":
         ptb.run_polling()
     else:
         # Used for testing webhook locally, instructions for how to set up local webhook at https://dev.to/ibrarturi/how-to-test-webhooks-on-your-localhost-3b4f
-        uvicorn.run(app, host="0.0.0.0", port=0000)
+        uvicorn.run(app, host="0.0.0.0", port=8000)
