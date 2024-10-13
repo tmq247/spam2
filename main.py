@@ -20,8 +20,8 @@ from typing import Dict, Any
 
 
 async def error(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Log Errors caused by Updates."""
-    logger.warning('Update "%s" caused error "%s"', update, context.error)
+    """Nhật ký lỗi do cập nhật gây ra."""
+    logger.warning('Cập nhật "%s" gây ra lỗi "%s"', update, context.error)
 
 
 def add_handlers(
