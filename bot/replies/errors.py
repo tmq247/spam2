@@ -2,28 +2,28 @@ from config import JOB_LIMIT_PER_PERSON, BOT_NAME
 from telegram import ForceReply, Update
 from telegram.constants import ParseMode
 
-error_message = "You know that's not right..."
+error_message = "Bạn biết điều đó không đúng..."
 exceed_limit_error_message = (
     "Recurring Messages currently only supports %d jobs per person, in an effort to reduce spam.\n\n__custom_message__If you need to create more than __limit__ jobs, please contact the bot owner at hs.develops.1@gmail.com specifying:\n1. the number of jobs you need, and\n2. your Telegram handle.\n\n<b>Enjoying the bot?</b>\nYou can <a href='https://www.buymeacoffee.com/rmteam'>buy the RM team a coffee</a>!"
     % (JOB_LIMIT_PER_PERSON)
 )  # html
-channels_only_error_message = "Job creation by forwarded messages is only enabled for channels. Please run the /add command in your __chat_type__ chat."
-user_unauthorized_error_message = "Oh no... You are unauthorized to run this command. Please check with __bot_ic__ if you think this is an error."
+channels_only_error_message = "Tạo việc làm bằng tin nhắn chuyển tiếp chỉ được kích hoạt cho các kênh. Vui lòng chạy lệnh /add trong cuộc trò chuyện __chat_type__ của bạn."
+user_unauthorized_error_message = "Ồ không... Bạn không được phép chạy lệnh này. Vui lòng kiểm tra với __bot_ic__ nếu bạn cho rằng đây là lỗi."
 wrong_restrction_error_message = (
-    "Restriction is already set. Please ask __bot_ic__ to unset bot restriction first."
+    "Hạn chế đã được thiết lập. Trước tiên hãy yêu cầu __bot_ic__ bỏ đặt giới hạn bot."
 )
-timezone_nochange_error_message = "Whut? That's the same timezone!"
-invalid_new_job_message = "A job with this name already exists. Please /add and create a new job, or /edit this job."
-quiz_unavailable_message = 'Recurring messages unfortunately cannot support recurring quizzes in channels and groups... because Telegram does not return the correct option id for forwarded messages (◕︵◕) (<a href="https://docs.python-telegram-bot.org/en/v12.5.1/telegram.poll.html#telegram.Poll.correct_option_id">see docs</a>)'
-invalid_crontab_message = 'This expression is invalid. Please provide a valid expression. Click <a href="https://crontab.guru/">here</a> if you need help. Use /checkcron to check your cron expression.'  # html
+timezone_nochange_error_message = "Cái gì? Đó là cùng một múi giờ!"
+invalid_new_job_message = "Một công việc có tên này đã tồn tại. Vui lòng /add và tạo công việc mới hoặc /edit công việc này."
+quiz_unavailable_message = 'Rất tiếc, tin nhắn định kỳ không thể hỗ trợ các câu đố định kỳ trong các kênh và nhóm... vì Telegram không trả về id tùy chọn chính xác cho các tin nhắn được chuyển tiếp (◕︵◕) (<a href="https://docs.python-telegram-bot.org/en/v12.5.1/telegram.poll.html#telegram.Poll.correct_option_id">see docs</a>)'
+invalid_crontab_message = 'Biểu thức này không hợp lệ. Vui lòng cung cấp một biểu thức hợp lệ. Nhấp vào <a href="https://crontab.guru/">here</a> nếu bạn cần giúp đỡ. Sử dụng /checkcron để kiểm tra biểu thức cron của bạn.'  # html
 convo_unauthorized_message = (
-    "Only the user who started this convo can continue this convo."
+    "Chỉ người dùng đã bắt đầu cuộc trò chuyện này mới có thể tiếp tục cuộc trò chuyện này."
 )
-no_photos_to_delete_error_message = "No photos to delete. Ending conversation..."
-attribute_change_error_message = "Something went wrong on the server... Please contact the bot owner at hs.develops.1@gmail.com."
-private_only_error_message = "This command can only be run in private chat with %s"
-missing_chats_error_message = "Please add and set up %s in a group"
-missing_bot_in_group_message = "Terminating conversation... \n\nPlease add bot into the group as an admin and enable:\n1. <i>Change Channel Info</i> and\n2. <i>Post Messages</i>\nbefore running /changesender."
+no_photos_to_delete_error_message = "Không có ảnh để xóa. Kết thúc cuộc trò chuyện..."
+attribute_change_error_message = "Đã xảy ra lỗi trên máy chủ... Vui lòng liên hệ với chủ sở hữu bot theo địa chỉ @COIHAYCOC."
+private_only_error_message = "Lệnh này chỉ có thể được chạy trong cuộc trò chuyện riêng tư với %s"
+missing_chats_error_message = "Vui lòng thêm và thiết lập %s trong một nhóm"
+missing_bot_in_group_message = "Chấm dứt cuộc trò chuyện... \n\nVui lòng thêm bot vào nhóm với tư cách quản trị viên và kích hoạt:\n1. <i>Change Channel Info</i> và\n2. <i>Post Messages</i>\ntrước khi chạy /changesender."
 
 
 async def send_error_message(update: Update) -> None:
@@ -37,12 +37,12 @@ async def send_exceed_limit_error_message(update: Update, limit: int) -> None:
     elif limit < JOB_LIMIT_PER_PERSON:
         reply_text = reply_text.replace(
             "__custom_message__",
-            "However, we have received reports of spam from you and as a result you have been blacklisted.\n\n",
+            "Tuy nhiên, chúng tôi đã nhận được báo cáo về thư rác từ bạn và kết quả là bạn đã bị đưa vào danh sách đen.\n\n",
         )
     else:
         reply_text = reply_text.replace(
             "__custom_message__",
-            "As per prior request we have increased your limit to %d.\n\n" % limit,
+            "Theo yêu cầu trước đó, chúng tôi đã tăng giới hạn của bạn lên %d.\n\n" % limit,
         )
     await update.message.reply_text(
         text=reply_text,
