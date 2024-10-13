@@ -16,18 +16,18 @@ from telegram import KeyboardButton
 
 # custom messages
 # html
-start_message = "<b>Thank you for using Recurring Messages!</b>\n\nTo start, please tell me your UTC timezone. For example, if your timezone is UTC+08:30, enter +08:30.\n\n(swipe left to reply to this message)"
-help_message = 'I can help you schedule recurring messages using <a href="https://crontab.guru/">cron schedule expressions</a> (min. 1 minute intervals).\n\n<b>Available commands</b>\n/add - add a new job\n/addmultiple - add multiple jobs\n/edit - edit job details\n/list - list active jobs\n/delete - delete a job\n/reset - delete all jobs\n/changetz - edit timezone\n/changesender - change sender for group\n/options - edit permissions for group\n/checkcron - check the validity/meaning of a cron expression\n\n<b>Feeling lost?</b>\nRefer to our <a href="https://github.com/hsdevelops/cron-telebot/wiki/User-Guide">user guide</a> for more usage instructions.\n\n<b>Found a bug?</b>\nPlease contact the bot owner at <a href="mailto:hs.develops.1@gmail.com">hs.develops.1@gmail.com</a>.\n\n<b>Enjoying the bot?</b>\nYou can <a href="https://www.buymeacoffee.com/hschua">buy the creator a coffee</a>!'  # html
-delete_message = "Hey, tell me the name of the job you want to delete. Get /list of available jobs.\n\n(swipe left to reply to this message)"
+start_message = "<b>Cảm ơn bạn đã sử dụng Tin nhắn định kỳ!</b>\n\nĐể bắt đầu, vui lòng cho tôi biết múi giờ UTC của bạn. Ví dụ: nếu múi giờ của bạn là UTC+08:30, hãy nhập +08:30.\n\n(vuốt sang trái để trả lời tin nhắn này)"
+help_message = 'Tôi có thể giúp bạn lên lịch gửi tin nhắn định kỳ bằng cách sử dụng <a href="https://crontab.guru/">cron schedule expressions</a> (phút. Khoảng thời gian 1 phút).\n\n<b>Các lệnh có sẵn</b>\n/add - thêm công việc mới\n/addmultiple - thêm nhiều công việc\n/edit - chỉnh sửa chi tiết công việc\n/list - liệt kê các công việc đang hoạt động\n/delete - xóa một công việc\n/reset - xóa tất cả công việc\n/changetz - chỉnh sửa múi giờ\n/changesender - thay đổi người gửi cho nhóm\n/options - chỉnh sửa quyền cho nhóm\n/checkcron - kiểm tra tính hợp lệ/ý nghĩa của biểu thức cron\n\n<b>Cảm thấy lạc lõng?</b>\nTham khảo của chúng tôi <a href="https://github.com/hsdevelops/cron-telebot/wiki/User-Guide">hướng dẫn sử dụng</a> để biết thêm hướng dẫn sử dụng.\n\n<b>Tìm thấy một lỗi?</b>\nVui lòng liên hệ với chủ sở hữu bot tại <a href="@COIHAYCOC">@COIHAYCOC</a>.\n\n<b>Thưởng thức bot?</b>\nBạn có thể <a href=":like">:like</a>!'  # html
+delete_message = "Này, hãy cho tôi biết tên công việc bạn muốn xóa. Nhận /list các công việc có sẵn.\n\n(vuốt sang trái để trả lời tin nhắn này)"
 request_jobname_message = (
-    "Give me your job name\n\n(swipe left to reply to this message)"
+    "Cho tôi biết tên công việc của bạn\n\n(vuốt sang trái để trả lời tin nhắn này)"
 )
 # html
-request_crontab_message = 'Give me your cron schedule expression (e.g. 4 5 * * *), click <a href="https://crontab.guru/">here</a> if you need help. Use /checkcron to check your cron expression.\n\n(swipe left to reply to this message)'
+request_crontab_message = 'Hãy cho tôi biểu thức lịch trình cron của bạn (ví dụ: 4 5 * * *), nhấp vào <a href="https://crontab.guru/">here</a> nếu bạn cần giúp đỡ. Sử dụng /checkcron để kiểm tra biểu thức cron của bạn.\n\n(vuốt sang trái để trả lời tin nhắn này)'
 request_text_message = (
-    "Now give me what you want to send\n\n(swipe left to reply to this message)"
+    "Bây giờ hãy cho tôi những gì bạn muốn gửi\n\n(vuốt sang trái để trả lời tin nhắn này)"
 )
-request_jobs_message = "Reply this message with your jobs in the following format (example):\n\n0 10 * * 2 Clean up a table\n0 10 * * 4 Check the calendar\n0 14 * * 5 Check this and that and that\n\n(swipe left to reply to this message)"
+request_jobs_message = "Trả lời tin nhắn này kèm theo công việc của bạn theo định dạng sau (ví dụ):\n\n0 10 * * 2 Dọn dẹp một bảng\n0 10 * * 4 Kiểm tra lịch\n0 14 * * 5 Kiểm tra cái này cái kia và cái kia\n\n(vuốt sang trái để trả lời tin nhắn này)"
 simple_prompt_message = "/add to create a new job"
 prompt_new_job_message = "The job already got this field. Please /add and create a new job. If you want to override, /delete job and create again."
 list_jobs_message = "Choose the job you are interested to know more about. The jobs are listed on the reply keyboard.\n\n(swipe left to reply to this message)"
